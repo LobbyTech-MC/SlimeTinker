@@ -11,6 +11,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import net.guizhanss.minecraft.slimetinker.utils.LangUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -28,13 +29,13 @@ public class ArmourTemplate extends UnplaceableBlock {
         return MessageFormat.format(
             "{0}{1}-{2}{3}-{4}{5} {6}{7}",
             TinkerMaterialManager.getById(armourDefinition.getPlateMaterial()).getColor(),
-            ThemeUtils.toTitleCase(armourDefinition.getPlateMaterial()),
+            LangUtils.getMaterialName(armourDefinition.getPlateMaterial()),
             TinkerMaterialManager.getById(armourDefinition.getGambesonMaterial()).getColor(),
-            ThemeUtils.toTitleCase(armourDefinition.getGambesonMaterial()),
+            LangUtils.getMaterialName(armourDefinition.getGambesonMaterial()),
             TinkerMaterialManager.getById(armourDefinition.getLinksMaterial()).getColor(),
-            ThemeUtils.toTitleCase(armourDefinition.getLinksMaterial()),
+            LangUtils.getMaterialName(armourDefinition.getLinksMaterial()),
             ChatColor.WHITE,
-            ThemeUtils.toTitleCase(armourDefinition.getPartType())
+            LangUtils.getArmorPart(armourDefinition.getPartType())
         );
     }
 

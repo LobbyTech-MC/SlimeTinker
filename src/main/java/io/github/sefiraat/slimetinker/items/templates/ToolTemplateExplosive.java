@@ -10,6 +10,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.tools.ExplosiveTool;
+import net.guizhanss.minecraft.slimetinker.utils.LangUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -38,13 +39,13 @@ public class ToolTemplateExplosive extends ExplosiveTool {
         return MessageFormat.format(
             "{0}{1}-{2}{3}-{4}{5} {6}{7}",
             TinkerMaterialManager.getById(toolDefinition.getHeadMaterial()).getColor(),
-            ThemeUtils.toTitleCase(toolDefinition.getHeadMaterial()),
+            LangUtils.getMaterialName(toolDefinition.getHeadMaterial()),
             TinkerMaterialManager.getById(toolDefinition.getBinderMaterial()).getColor(),
-            ThemeUtils.toTitleCase(toolDefinition.getBinderMaterial()),
+            LangUtils.getMaterialName(toolDefinition.getBinderMaterial()),
             TinkerMaterialManager.getById(toolDefinition.getRodMaterial()).getColor(),
-            ThemeUtils.toTitleCase(toolDefinition.getRodMaterial()),
+            LangUtils.getMaterialName(toolDefinition.getRodMaterial()),
             ChatColor.WHITE,
-            ThemeUtils.toTitleCase(toolDefinition.getPartType())
+            LangUtils.getToolName(toolDefinition.getPartType())
         );
     }
 

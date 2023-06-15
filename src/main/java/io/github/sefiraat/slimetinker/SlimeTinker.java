@@ -15,6 +15,7 @@ import io.github.sefiraat.slimetinker.listeners.ListenerManager;
 import io.github.sefiraat.slimetinker.managers.DispatchManager;
 import io.github.sefiraat.slimetinker.managers.TraitManager;
 import io.github.sefiraat.slimetinker.runnables.RunnableManager;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
 import org.bstats.bukkit.Metrics;
 
 public class SlimeTinker extends AbstractAddon {
@@ -31,7 +32,7 @@ public class SlimeTinker extends AbstractAddon {
     private TraitManager traitManager;
 
     public SlimeTinker() {
-        super("Sefiraat", "SlimeTinker", "master", "auto-update");
+        super("ybw0014", "SlimeTinker-CN", "master", "auto-update");
     }
 
     @Override
@@ -42,7 +43,8 @@ public class SlimeTinker extends AbstractAddon {
         instance = this;
 
         getLogger().info("########################################");
-        getLogger().info("   Slime Tinker - Created by Sefiraat   ");
+        getLogger().info("         Slime Tinker  粘液匠魂          ");
+        getLogger().info("       作者: Sefiraat 汉化: ybw0014      ");
         getLogger().info("########################################");
 
         ItemGroups.set(this);
@@ -61,6 +63,9 @@ public class SlimeTinker extends AbstractAddon {
 
         this.listenerManager = new ListenerManager(this, this.getServer().getPluginManager());
 
+        if (getConfig().getBoolean("auto-update") && getDescription().getVersion().startsWith("Build")) {
+            GuizhanBuildsUpdaterWrapper.start(this, getFile(), "ybw0014", "SlimeTinker-CN", "master", false);
+        }
     }
 
     @Override
@@ -68,7 +73,6 @@ public class SlimeTinker extends AbstractAddon {
         saveConfig();
         instance = null;
     }
-
 
     public RunnableManager getRunnableManager() {
         return runnableManager;
