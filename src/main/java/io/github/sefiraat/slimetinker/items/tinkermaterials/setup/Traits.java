@@ -759,9 +759,8 @@ public final class Traits {
         .setLore(
             "+200% 耐久消耗",
             "承受伤害将根据耐久度计算:",
-            "耐久高于一半时减少承受伤害,满耐久度时最多减少12.5%",
-            "耐久低于一半时增加承受伤害,1耐久度时最多增加25%",
-            "每件护甲单独计算"
+            "耐久高于一半时减少承受伤害,满耐久度时最多减少25%",
+            "耐久低于一半时增加承受伤害,1耐久度时最多增加25%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateBrass)
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::plateBrass);
