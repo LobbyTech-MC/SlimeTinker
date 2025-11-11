@@ -49,7 +49,8 @@ public class PlayerDamagedListener implements Listener {
         // Settle
         settlePotionEffects(friend);
         event.setDamage(friend.getDamageOverride() == null ? event.getDamage() * friend.getDamageMod() : friend.getDamageOverride());
-        if (friend.getDamageMod() == 0 || friend.isCancelEvent()) {
+        // fix: issue #93 :  damageMod < 0 should also be cancelled
+        if (friend.getDamageMod() <= 0 || friend.isCancelEvent()) {
             event.setCancelled(true);
         }
     }
@@ -80,7 +81,8 @@ public class PlayerDamagedListener implements Listener {
             // Settle
             settlePotionEffects(friend);
             event.setDamage(friend.getDamageOverride() == null ? event.getDamage() * friend.getDamageMod() : friend.getDamageOverride());
-            if (friend.getDamageMod() == 0 || friend.isCancelEvent()) {
+            // fix: issue #93 :  damageMod < 0 should also be cancelled
+            if (friend.getDamageMod() <= 0 || friend.isCancelEvent()) {
                 event.setCancelled(true);
             }
         }

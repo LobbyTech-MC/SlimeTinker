@@ -11,12 +11,7 @@ import io.github.sefiraat.slimetinker.utils.Keys;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
 import io.github.sefiraat.slimetinker.utils.WorldUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import org.bukkit.Color;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Enderman;
@@ -157,34 +152,43 @@ public final class PlayerDamagedEvents {
         if (!(itemMeta instanceof Damageable)) {
             return;
         }
-
+        // fix issue # 93: nerf brass
+        // its logic is wrongly coded , mismatching its description
+        // And it is truly overpowered at current values
+        // Note: getDamage() returns the durability already used
+        // Imagine you have a set of brass plate armor each piece with only 1 / 10 durability
+        // you will get  total of -1 damageMod, which means the event will be cancelled and armor will not be damaged by the attack, and the player will be invulnerable
+        // even if you only got 2/ 10 of durability, hold a carbon mesh bind tool will result in -1.13 damageMod
+        // Note: tools with infinity rod and carbon mesh bind decrease damageMod to  1/2 (1 - 33%) = 0.33, if we provide more than 0.33 in add operation, the player will be invulnerable again. so we decide to use multiplication, which provide a maxinum of 0.125 reduce of damageMod per piece
+        // we decided to cut it in half , letting it result in about -0.4 of CURRENT damageMod for a set of armor
+        // Note: providing a total of (1 - 0.25)^4 = 0.3 damageMod multiplier is also too op, (you're granted the same dameg reduction as infinite rod = carbon mesh bind just by wearing armor)
         Damageable damagable = (Damageable) itemMeta;
         int maxDurability = itemStack.getType().getMaxDurability();
         int damage = damagable.getDamage();
         float dmgPerc = ((float) damage) / ((float) maxDurability);
 
         if (dmgPerc <= 0) {
-            friend.setDamageMod(friend.getDamageMod() + 0.25);
+            friend.setDamageMod(friend.getDamageMod() * (1 - 0.125));
         } else if (dmgPerc <= 0.1) {
-            friend.setDamageMod(friend.getDamageMod() + 0.20);
+            friend.setDamageMod(friend.getDamageMod() * (1 - 0.1));
         } else if (dmgPerc <= 0.2) {
-            friend.setDamageMod(friend.getDamageMod() + 0.15);
+            friend.setDamageMod(friend.getDamageMod() * (1 - 0.075));
         } else if (dmgPerc <= 0.3) {
-            friend.setDamageMod(friend.getDamageMod() + 0.10);
+            friend.setDamageMod(friend.getDamageMod() * (1 - 0.050));
         } else if (dmgPerc <= 0.4) {
-            friend.setDamageMod(friend.getDamageMod() + 0.05);
+            friend.setDamageMod(friend.getDamageMod() * (1 - 0.025));
         } else if (dmgPerc <= 0.5) {
-            friend.setDamageMod(friend.getDamageMod() + 0.00);
+//            friend.setDamageMod(friend.getDamageMod() + );
         } else if (dmgPerc <= 0.6) {
-            friend.setDamageMod(friend.getDamageMod() - 0.05);
+            friend.setDamageMod(friend.getDamageMod() * (1 + 0.05));
         } else if (dmgPerc <= 0.7) {
-            friend.setDamageMod(friend.getDamageMod() - 0.10);
+            friend.setDamageMod(friend.getDamageMod() * (1 + 0.10));
         } else if (dmgPerc <= 0.8) {
-            friend.setDamageMod(friend.getDamageMod() - 0.15);
+            friend.setDamageMod(friend.getDamageMod() * (1 + 0.15));
         } else if (dmgPerc <= 0.9) {
-            friend.setDamageMod(friend.getDamageMod() - 0.20);
+            friend.setDamageMod(friend.getDamageMod() * (1 + 0.20));
         } else if (dmgPerc <= 1) {
-            friend.setDamageMod(friend.getDamageMod() - 0.25);
+            friend.setDamageMod(friend.getDamageMod() * (1 + 0.25));
         }
     }
 
@@ -639,12 +643,13 @@ public final class PlayerDamagedEvents {
     public static void plateIridium(EventFriend friend) {
         Player p = friend.getPlayer();
         Entity e = friend.getDamagingEntity();
-        if (e instanceof Mob) {
+        //fix issue #92, damage from player should also be blocked
+        if (e instanceof Mob || e instanceof Player) {
             if (e.getType() == EntityType.GUARDIAN) {
                 return;
             }
 
-            ((Mob) e).damage(friend.getInitialDamage() * 0.1, p);
+            ((org.bukkit.entity.Damageable) e).damage(friend.getInitialDamage() * 0.1, p);
             friend.setDamageMod(friend.getDamageMod() - 0.1);
         }
     }
