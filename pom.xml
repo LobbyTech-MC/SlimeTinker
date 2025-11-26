@@ -161,7 +161,7 @@
     </profiles>
 
     <build>
-        <finalName>${project.name}-${project.version}</finalName>
+        <finalName>[sf]${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
