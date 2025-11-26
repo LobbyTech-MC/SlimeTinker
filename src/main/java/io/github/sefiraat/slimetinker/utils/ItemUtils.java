@@ -174,7 +174,7 @@ public final class ItemUtils {
         		String oldLineLore = it.next();
         		currentLine += 1;
         		// 标记最后一行特征Lore 检查是否有其他lore
-        		if (oldLineLore == ThemeUtils.getLine()) {
+        		if (oldLineLore.endsWith(ThemeUtils.getLine())) {
         			endTinkerLoreLine = currentLine;
         		}
             }
@@ -234,7 +234,11 @@ public final class ItemUtils {
 
         // 将额外的lore保存至原装备
         if (extraLore != null && !extraLore.isEmpty()) {
-        	lore.addAll(extraLore);
+        	for (Iterator<String> it =  extraLore.iterator(); it.hasNext();) {
+        		String lineLore = it.next();
+        		lore.add(lineLore);
+        		
+            }
         }
         
         im.setLore(lore);
@@ -262,7 +266,7 @@ public final class ItemUtils {
         		String oldLineLore = it.next();
         		currentLine += 1;
         		// 标记最后一行特征Lore 检查是否有其他lore
-        		if (oldLineLore == ThemeUtils.getLine()) {
+        		if (oldLineLore.endsWith(ThemeUtils.getLine())) {
         			endTinkerLoreLine = currentLine;
         		}
             }
@@ -321,7 +325,11 @@ public final class ItemUtils {
 
         // 将额外的lore保存至原装备
         if (extraLore != null && !extraLore.isEmpty()) {
-        	lore.addAll(extraLore);
+        	for (Iterator<String> it =  extraLore.iterator(); it.hasNext();) {
+        		String lineLore = it.next();
+        		lore.add(lineLore);
+        		
+            }
         }
         
         im.setLore(lore);

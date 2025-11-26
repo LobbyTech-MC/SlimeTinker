@@ -67,6 +67,8 @@ public class IdMap {
         idMap.put(Ids.DRACONIC, "龙息");
         idMap.put(Ids.REINFORCED_DRACONIUM, "强化龙");
 		idMap.put(Ids.ANNIVERSARIUM, "周年庆");
+		idMap.put(Ids.SMITHIUM, "史密斯");
+		
 
         // Mods
         idMap.put("QUARTZ", "石英");
