@@ -221,7 +221,7 @@ public final class Materials {
         "NUGGET_CAST_BOOMERITE",
         Material.ACACIA_BUTTON,
         ThemeItemType.CRAFTING,
-        "锇合金粒",
+        "爆炸合金粒",
         "由熔融锇合金制成的粒"
     );
 
@@ -229,8 +229,8 @@ public final class Materials {
         "NUGGET_CAST_SEFIRITE",
         Material.IRON_NUGGET,
         ThemeItemType.CRAFTING,
-        "钯合金粒",
-        "由熔融钯合金制成的粒"
+        "创作合金粒",
+        "由熔融创作合金制成的粒"
     );
     public static final SlimefunItemStack NUGGET_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
         "NUGGET_CAST_CRINGLEIUM",
@@ -303,15 +303,15 @@ public final class Materials {
         "INGOT_CAST_BOOMERITE",
         Material.BRICK,
         ThemeItemType.CRAFTING,
-        "锇合金锭",
+        "爆炸合金锭",
         "由熔融锇合金制成的锭"
     );
     public static final SlimefunItemStack INGOT_CAST_SEFIRITE = ThemeUtils.themedItemStack(
         "INGOT_CAST_SEFIRITE",
         Material.IRON_INGOT,
         ThemeItemType.CRAFTING,
-        "钯合金锭",
-        "由熔融钯合金制成的锭",
+        "创作合金锭",
+        "由熔融创作合金制成的锭",
         "不稳定,只能存在一小段时间"
     );
     public static final SlimefunItemStack INGOT_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
@@ -568,7 +568,7 @@ public final class Materials {
         "BLOCK_CAST_BOOMERITE",
         Material.TERRACOTTA,
         ThemeItemType.CRAFTING,
-        "锇合金块",
+        "爆炸合金块",
         "由熔融锇合金制成的块"
     );
 
@@ -576,8 +576,8 @@ public final class Materials {
         "BLOCK_CAST_SEFIRITE",
         Material.IRON_BLOCK,
         ThemeItemType.CRAFTING,
-        "钯合金块",
-        "由熔融钯合金制成的块"
+        "创作合金块",
+        "由熔融创作合金制成的块"
     );
     public static final SlimefunItemStack BLOCK_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
         "BLOCK_CAST_CRINGLEIUM",

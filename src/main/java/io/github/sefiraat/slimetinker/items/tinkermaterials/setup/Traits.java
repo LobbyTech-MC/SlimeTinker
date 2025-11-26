@@ -630,7 +630,7 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
         .setTraitName("烫烫烫")
         .setLore(
-            "&k锟斤拷"
+            "§k锟斤拷"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodCorbronze);
 
@@ -1190,7 +1190,7 @@ public final class Traits {
     public static final MaterialTrait CORE_BOOMERITE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("Go Boomer")
+        .setTraitName("即将爆炸")
         .setLore(
             "警告: 即将发生爆炸"
         )
@@ -1201,7 +1201,7 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
         .setTraitName("庆祝")
         .setLore(
-            "是时候庆祝一下Sefi的生日了"
+            "是时候庆祝一下作者的生日了"
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::headSefirite);
 

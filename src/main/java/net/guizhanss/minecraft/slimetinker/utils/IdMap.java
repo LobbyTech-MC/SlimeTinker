@@ -55,17 +55,18 @@ public class IdMap {
         idMap.put(Ids.REDSTONE_ALLOY, "红石合金");
         idMap.put(Ids.SILICON, "硅");
         idMap.put(Ids.FERROSILICON, "硅铁");
-        idMap.put(Ids.BOOMERITE, "Boomer合金");
-        idMap.put(Ids.SEFIRITE, "Sefi合金");
+        idMap.put(Ids.BOOMERITE, "爆炸合金");
+        idMap.put(Ids.SEFIRITE, "创作合金");
         idMap.put(Ids.LIQUID_CHRISTMAS, "圣诞礼物");
         idMap.put(Ids.CRINGLEIUM, "圣诞合金");
         idMap.put(Ids.FLOWING_FONDNESS, "喜爱");
         idMap.put(Ids.DETAILED_DEVOTION, "深爱");
         idMap.put(Ids.PURIFIED_PASSION, "热情");
         idMap.put(Ids.LIQUID_LOVE, "爱");
-        idMap.put(Ids.NICEINIUM, "Nice");
+        idMap.put(Ids.NICEINIUM, "笑");
         idMap.put(Ids.DRACONIC, "龙息");
         idMap.put(Ids.REINFORCED_DRACONIUM, "强化龙");
+		idMap.put(Ids.ANNIVERSARIUM, "周年庆");
 
         // Mods
         idMap.put("QUARTZ", "石英");

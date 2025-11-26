@@ -179,11 +179,14 @@ public final class ItemUtils {
         		}
             }
         	// 从标记行开始存储额外lore
-        	currentLine = endTinkerLoreLine;
+        	currentLine = 0;
         	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
-        		String extraLineLore = it.next();
+        		String oldLineLore = it.next();
         		currentLine += 1;
-        		extraLore.add(extraLineLore);
+        		if (currentLine > endTinkerLoreLine) {
+        			extraLore.add(oldLineLore);
+        		}
+        		
             }
         	
         }
@@ -264,11 +267,14 @@ public final class ItemUtils {
         		}
             }
         	// 从标记行开始存储额外lore
-        	currentLine = endTinkerLoreLine;
+        	currentLine = 0;
         	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
-        		String extraLineLore = it.next();
+        		String oldLineLore = it.next();
         		currentLine += 1;
-        		extraLore.add(extraLineLore);
+        		if (currentLine > endTinkerLoreLine) {
+        			extraLore.add(oldLineLore);
+        		}
+        		
             }
         	
         }
