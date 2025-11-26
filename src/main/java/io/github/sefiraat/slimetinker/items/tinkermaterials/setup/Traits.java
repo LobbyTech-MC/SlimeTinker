@@ -1237,21 +1237,21 @@ public final class Traits {
     public static final MaterialTrait CORE_SMITHIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("Hardy")
+        .setTraitName("坚毅")
         .setLore(
-            "50% chance to ignore durability loss."
+            "有 50% 几率不消耗耐久。"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSmithium);
 
     public static final MaterialTrait CORE_SMITHIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("Industrious")
+        .setTraitName("勤勉")
         .setLore(
-            "Shift + Right click to activate Haste Burst for 30 seconds.",
-            "When Haste Burst is active, every block broken has",
-            "a [50 ÷ Haste Level]% chance to apply a stack of haste.",
-            "Hardcaps at Haste 10. Has a 5 min cooldown."
+            "Shift + 右键点击来激活急速爆裂效果，持续30秒。",
+            "急速爆裂效果生效期间，",
+            "每破坏一个方块有 [50 ÷ 急迫等级]% 几率",
+            "增加1级急迫效果，最高为急迫 10。冷却时间5分钟。"
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::rodSmithium)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodSmithium);
@@ -1259,18 +1259,18 @@ public final class Traits {
     public static final MaterialTrait CORE_SMITHIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("Heat Resistance")
+        .setTraitName("抗热")
         .setLore(
-            "25% chance to ignore fire/heat damage."
+            "有 25% 几率无视火焰/岩浆伤害。"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::platesSmithium);
 
     public static final MaterialTrait CORE_SMITHIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("Craftsmanship")
+        .setTraitName("工匠技术")
         .setLore(
-            "25% chance to have repair costs refunded!"
+            "有 25% 几率返还维修花费。"
         );
 
     public static final MaterialTrait CORE_ANNIVERSARIUM_PLATES = new MaterialTrait()

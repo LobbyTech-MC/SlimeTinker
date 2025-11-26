@@ -15,7 +15,7 @@ public final class LangUtils {
     }
 
     public static String getToolName(String type){
-        switch(type.toUpperCase()){
+        switch (type.toUpperCase()) {
             case Ids.PICKAXE:
                 return "镐";
             case Ids.SHOVEL:
@@ -32,7 +32,7 @@ public final class LangUtils {
     }
 
     public static String getToolHead(String type){
-        switch(type.toUpperCase()){
+        switch (type.toUpperCase()) {
             case Ids.PICKAXE:
                 return "镐头";
             case Ids.SHOVEL:
@@ -49,7 +49,7 @@ public final class LangUtils {
     }
 
     public static String getArmorPart(String part) {
-        switch(part.toUpperCase()){
+        switch (part.toUpperCase()) {
             case Ids.HELMET:
                 return "头盔";
             case Ids.CHESTPLATE:

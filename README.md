@@ -2,28 +2,11 @@
 
 SlimeTinker 是一个 Slimefun4 的附属插件，致力于在非模组服务器中还原知名模组 [匠魂](https://www.curseforge.com/minecraft/mc-mods/tinkers-construct) 的体验。
 
-SlimeTinker 的非官方中文 Wiki 包含了所有特性的列表: [点击前往](https://slimetinker.guizhanss.wiki)
+SlimeTinker 的非官方中文 Wiki 包含了所有特性的列表: [点击前往](https://slimefun-addons-wiki.guizhanss.cn/slime-tinker/)
 
 ## 下载
 
-**自动更新**: 汉化版构建#15及以后版本包含自动更新功能，默认开启。
-
-点击这里下载 SlimeTinker: [下载 SlimeTinker](https://builds.guizhanss.net/ybw0014/SlimeTinker-CN/master)
-
-<p align="center">
-  <a href="https://github.com/ybw0014/SlimeTinker-CN/actions/workflows/maven.yml">
-    <img src="https://github.com/ybw0014/SlimeTinker-CN/actions/workflows/maven.yml/badge.svg" alt="Java CI"/>
-  </a>
-  <a href="https://builds.guizhanss.net/ybw0014/SlimeTinker-CN/master">
-    <img src="https://builds.guizhanss.net/f/ybw0014/SlimeTinker-CN/master/badge.svg" alt="Build status"/>
-  </a>
-</p>
-
-## 问题反馈
-
-请在 [问题追踪器](https://github.com/GuizhanCraft/SlimeTinker-CN/issues) 中反馈问题。  
-如果你无法访问GitHub，你也可以在 [QQ群](https://ybw0014.net/go/sf-qgroup) 内进行反馈。（该条仅对Gitee用户有效)  
-不会在Gitee的问题追踪器中处理任何问题。
+[![Build Status](https://builds.guizhanss.com/api/badge/SlimefunGuguProject/SlimeTinker/master/latest)](https://builds.guizhanss.com/SlimefunGuguProject/SlimeTinker/master)
 
 ## 功能包括:
 
@@ -40,13 +23,13 @@ SlimeTinker 的非官方中文 Wiki 包含了所有特性的列表: [点击前�
 * 所有适用的效果和模组都能与原版附魔一起使用。
 * 支持启用/禁用特性。
 
-查看由Boomer_1制作的插件介绍视频: [Youtube](https://youtu.be/gAUoxj-h26s)
+查看由 Boomer_1 制作的插件介绍视频: [Youtube](https://youtu.be/gAUoxj-h26s)
 
 ## 配置
 
-SlimeTinker现已支持禁用特性。所有的特性默认启用。  
+SlimeTinker 现已支持禁用特性。所有的特性默认启用。  
 要禁用特性，打开 `/plugins/SlimeTinker/traits.yml`,  
-将指定材料的部件设置为`false`即可。
+将指定材料的部件设置为 `false` 即可。
 
 部件对应：
 
@@ -64,7 +47,7 @@ SlimeTinker现已支持禁用特性。所有的特性默认启用。
 
 ## 建议
 
-SlimeTinker 有**大量**的特性与效果，我没有足够的想法来充实。所以我欢迎任何人在 Slimefun Addon Community 的 Discord 服务器中反馈 (记得在slime-tinker频道里)。 如果你有任何想法，请点击 [邀请链接](https://discord.gg/SqD3gg5SAU) 加入服务器。
+SlimeTinker 有**大量**的特性与效果，我没有足够的想法来充实。所以我欢迎任何人在 Slimefun Addon Community 的 Discord 服务器中反馈 (记得在 slime-tinker 频道里)。 如果你有任何想法，请点击 [邀请链接](https://discord.gg/SqD3gg5SAU) 加入服务器。
 
 ## 感谢
 

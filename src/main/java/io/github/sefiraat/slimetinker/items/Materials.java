@@ -280,7 +280,7 @@ public final class Materials {
         ThemeItemType.CRAFTING,
         "史密斯粒",
         "一种用途广泛的普通金属",
-        "可用于核心工业任务."
+        "可用于工业核心任务."
     );
     public static final SlimefunItemStack NUGGET_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "NUGGET_CAST_ANNIVERSARIUM",
@@ -363,7 +363,7 @@ public final class Materials {
         ThemeItemType.CRAFTING,
         "史密斯锭",
         "一种用途广泛的普通金属",
-        "可用于核心工业任务."
+        "可用于工业核心任务."
     );
     public static final SlimefunItemStack INGOT_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "INGOT_CAST_ANNIVERSARIUM",
@@ -607,7 +607,7 @@ public final class Materials {
         ThemeItemType.CRAFTING,
         "史密斯块",
         "一种用途广泛的普通金属",
-        "可用于核心工业任务."
+        "可用于工业核心任务."
     );
     public static final SlimefunItemStack BLOCK_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "BLOCK_CAST_ANNIVERSARIUM",

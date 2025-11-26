@@ -75,7 +75,7 @@ public class RepairBench extends MenuBlock {
             if (!freeFix) {
                 blockMenu.getItemInSlot(INPUT_KIT).setAmount(blockMenu.getItemInSlot(INPUT_KIT).getAmount() -1);
             } else {
-                player.sendMessage(ThemeUtils.SUCCESS + "Free repair!");
+                player.sendMessage(ThemeUtils.SUCCESS + "免费的维修！");
             }
         } else {
             player.sendMessage(ThemeUtils.WARNING + "修复工具的材质与需要修复的物品的材质不一致");
