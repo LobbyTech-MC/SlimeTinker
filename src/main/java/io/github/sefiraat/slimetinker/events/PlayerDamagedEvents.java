@@ -44,6 +44,19 @@ public final class PlayerDamagedEvents {
         throw new UnsupportedOperationException("Utility Class");
     }
 
+    public static void platesSmithium(EventFriend friend) {
+        if (friend.getCause() != EntityDamageEvent.DamageCause.FIRE
+            && friend.getCause() != EntityDamageEvent.DamageCause.FIRE_TICK
+            && friend.getCause() != EntityDamageEvent.DamageCause.LAVA
+        ) {
+            return;
+        }
+
+        if (ThreadLocalRandom.current().nextInt(1, 5) == 1) {
+            friend.setCancelEvent(true);
+        }
+    }
+
     public static void rodAdamantite(EventFriend friend) {
         if (friend.getCause() == EntityDamageEvent.DamageCause.ENTITY_EXPLOSION || friend.getCause() == EntityDamageEvent.DamageCause.BLOCK_EXPLOSION) {
             friend.setDamageMod(0);
@@ -627,6 +640,10 @@ public final class PlayerDamagedEvents {
         Player p = friend.getPlayer();
         Entity e = friend.getDamagingEntity();
         if (e instanceof Mob) {
+            if (e.getType() == EntityType.GUARDIAN) {
+                return;
+            }
+
             ((Mob) e).damage(friend.getInitialDamage() * 0.1, p);
             friend.setDamageMod(friend.getDamageMod() - 0.1);
         }

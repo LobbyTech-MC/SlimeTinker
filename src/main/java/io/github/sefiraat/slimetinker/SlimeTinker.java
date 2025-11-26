@@ -1,6 +1,10 @@
 package io.github.sefiraat.slimetinker;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
+import java.text.MessageFormat;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import io.github.sefiraat.slimetinker.itemgroups.ItemGroups;
 import io.github.sefiraat.slimetinker.items.Casts;
 import io.github.sefiraat.slimetinker.items.Dies;
@@ -13,16 +17,24 @@ import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManage
 import io.github.sefiraat.slimetinker.items.workstations.workbench.Workbench;
 import io.github.sefiraat.slimetinker.listeners.ListenerManager;
 import io.github.sefiraat.slimetinker.managers.DispatchManager;
+import io.github.sefiraat.slimetinker.managers.MemoryManager;
 import io.github.sefiraat.slimetinker.managers.TraitManager;
 import io.github.sefiraat.slimetinker.runnables.RunnableManager;
 import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
 import org.bstats.bukkit.Metrics;
 
-public class SlimeTinker extends AbstractAddon {
+import org.bstats.bukkit.Metrics;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
     public static final int RUNNABLE_TICK_RATE = 40;
 
     private static SlimeTinker instance;
+
+    private final String username;
+    private final String repo;
+    private final String branch;
 
     private RunnableManager runnableManager;
     private ListenerManager listenerManager;
@@ -30,13 +42,14 @@ public class SlimeTinker extends AbstractAddon {
     private DispatchManager dispatchManager;
     private Workbench workbench;
     private TraitManager traitManager;
+    private MemoryManager memoryManager;
 
     public SlimeTinker() {
         super("ybw0014", "SlimeTinker-CN", "master", "auto-update");
     }
 
     @Override
-    public void enable() {
+    public void onEnable() {
 
         new Metrics(this, 11748);
 
@@ -60,6 +73,7 @@ public class SlimeTinker extends AbstractAddon {
         tinkerMaterialManager = new TinkerMaterialManager();
         runnableManager = new RunnableManager();
         dispatchManager = new DispatchManager();
+        memoryManager = new MemoryManager();
 
         this.listenerManager = new ListenerManager(this, this.getServer().getPluginManager());
 
@@ -69,7 +83,7 @@ public class SlimeTinker extends AbstractAddon {
     }
 
     @Override
-    protected void disable() {
+    public void onDisable() {
         saveConfig();
         instance = null;
     }
@@ -100,6 +114,18 @@ public class SlimeTinker extends AbstractAddon {
 
     public TraitManager getTraitManager() {
         return traitManager;
+    }
+
+    @Nonnull
+    @Override
+    public JavaPlugin getJavaPlugin() {
+        return this;
+    }
+
+    @Nullable
+    @Override
+    public String getBugTrackerURL() {
+        return MessageFormat.format("https://github.com/{0}/{1}/issues/", this.username, this.repo);
     }
 
     public static SlimeTinker getInstance() {
