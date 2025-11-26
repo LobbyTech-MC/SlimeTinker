@@ -221,16 +221,16 @@ public final class Materials {
         "NUGGET_CAST_BOOMERITE",
         Material.ACACIA_BUTTON,
         ThemeItemType.CRAFTING,
-        "Boomer合金粒",
-        "由熔融Boomer合金制成的粒"
+        "锇合金粒",
+        "由熔融锇合金制成的粒"
     );
 
     public static final SlimefunItemStack NUGGET_CAST_SEFIRITE = ThemeUtils.themedItemStack(
         "NUGGET_CAST_SEFIRITE",
         Material.IRON_NUGGET,
         ThemeItemType.CRAFTING,
-        "Sefi合金粒",
-        "由熔融Sefi合金制成的粒"
+        "钯合金粒",
+        "由熔融钯合金制成的粒"
     );
     public static final SlimefunItemStack NUGGET_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
         "NUGGET_CAST_CRINGLEIUM",
@@ -271,16 +271,16 @@ public final class Materials {
         "NUGGET_CAST_NICE",
         Material.GOLD_NUGGET,
         ThemeItemType.CRAFTING,
-        "Nice粒",
-        "Nice~"
+        "笑粒",
+        "笑~"
     );
     public static final SlimefunItemStack NUGGET_CAST_SMITHIUM = ThemeUtils.themedItemStack(
         "NUGGET_CAST_SMITHIUM",
         Material.IRON_NUGGET,
         ThemeItemType.CRAFTING,
-        "Smithium Nugget",
-        "A straight-forward metal with various uses",
-        "in core industry tasks."
+        "史密斯粒",
+        "一种用途广泛的普通金属",
+        "可用于核心工业任务."
     );
     public static final SlimefunItemStack NUGGET_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "NUGGET_CAST_ANNIVERSARIUM",
@@ -303,15 +303,15 @@ public final class Materials {
         "INGOT_CAST_BOOMERITE",
         Material.BRICK,
         ThemeItemType.CRAFTING,
-        "Boomer合金锭",
-        "由熔融Boomer合金制成的锭"
+        "锇合金锭",
+        "由熔融锇合金制成的锭"
     );
     public static final SlimefunItemStack INGOT_CAST_SEFIRITE = ThemeUtils.themedItemStack(
         "INGOT_CAST_SEFIRITE",
         Material.IRON_INGOT,
         ThemeItemType.CRAFTING,
-        "Sefi合金锭",
-        "由熔融Sefi合金制成的锭",
+        "钯合金锭",
+        "由熔融钯合金制成的锭",
         "不稳定,只能存在一小段时间"
     );
     public static final SlimefunItemStack INGOT_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
@@ -354,16 +354,16 @@ public final class Materials {
         "INGOT_CAST_NICE",
         Material.GOLD_INGOT,
         ThemeItemType.CRAFTING,
-        "Nice锭",
-        "Nice~"
+        "笑之锭",
+        "笑~"
     );
     public static final SlimefunItemStack INGOT_CAST_SMITHIUM = ThemeUtils.themedItemStack(
         "INGOT_CAST_SMITHIUM",
         Material.IRON_INGOT,
         ThemeItemType.CRAFTING,
-        "Smithium Ingot",
-        "A straight-forward metal with various uses",
-        "in core industry tasks."
+        "史密斯锭",
+        "一种用途广泛的普通金属",
+        "可用于核心工业任务."
     );
     public static final SlimefunItemStack INGOT_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "INGOT_CAST_ANNIVERSARIUM",
@@ -568,16 +568,16 @@ public final class Materials {
         "BLOCK_CAST_BOOMERITE",
         Material.TERRACOTTA,
         ThemeItemType.CRAFTING,
-        "Boomer合金块",
-        "由熔融Boomer合金制成的块"
+        "锇合金块",
+        "由熔融锇合金制成的块"
     );
 
     public static final SlimefunItemStack BLOCK_CAST_SEFIRITE = ThemeUtils.themedItemStack(
         "BLOCK_CAST_SEFIRITE",
         Material.IRON_BLOCK,
         ThemeItemType.CRAFTING,
-        "Sefi合金块",
-        "由熔融Sefi合金制成的块"
+        "钯合金块",
+        "由熔融钯合金制成的块"
     );
     public static final SlimefunItemStack BLOCK_CAST_CRINGLEIUM = ThemeUtils.themedItemStack(
         "BLOCK_CAST_CRINGLEIUM",
@@ -597,17 +597,17 @@ public final class Materials {
         "BLOCK_CAST_NICE",
         Material.GOLD_BLOCK,
         ThemeItemType.CRAFTING,
-        "Nice块",
-        "Nice~"
+        "笑之块",
+        "笑~"
     );
 
     public static final SlimefunItemStack BLOCK_CAST_SMITHIUM = ThemeUtils.themedItemStack(
         "BLOCK_CAST_SMITHIUM",
         Material.IRON_BLOCK,
         ThemeItemType.CRAFTING,
-        "Smithium Block",
-        "A straight-forward metal with various uses",
-        "in core industry tasks."
+        "史密斯块",
+        "一种用途广泛的普通金属",
+        "可用于核心工业任务."
     );
     public static final SlimefunItemStack BLOCK_CAST_ANNIVERSARIUM = ThemeUtils.themedItemStack(
         "BLOCK_CAST_ANNIVERSARIUM",
