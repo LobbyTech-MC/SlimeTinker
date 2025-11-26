@@ -22,15 +22,19 @@ import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+@EnableAsync
 public final class ItemUtils {
 
     private ItemUtils() {
@@ -149,11 +153,41 @@ public final class ItemUtils {
         }
     }
 
+    @Async
     private static void rebuildToolLore(@Nonnull ItemStack itemStack) {
         ItemMeta im = itemStack.getItemMeta();
         assert im != null;
         PersistentDataContainer c = im.getPersistentDataContainer();
         List<String> lore = new ArrayList<>();
+        List<String> oldLore = new ArrayList<>();
+        List<String> extraLore = new ArrayList<>();
+        
+        if (im.hasLore()) {
+        	oldLore = im.getLore();
+        }
+        
+        
+        int endTinkerLoreLine = 0;
+        if (oldLore != null && !oldLore.isEmpty()) {
+        	int currentLine = 0;
+        	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
+        		String oldLineLore = it.next();
+        		currentLine += 1;
+        		// 标记最后一行特征Lore 检查是否有其他lore
+        		if (oldLineLore == ThemeUtils.getLine()) {
+        			endTinkerLoreLine = currentLine;
+        		}
+            }
+        	// 从标记行开始存储额外lore
+        	currentLine = endTinkerLoreLine;
+        	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
+        		String extraLineLore = it.next();
+        		currentLine += 1;
+        		extraLore.add(extraLineLore);
+            }
+        	
+        }
+        
 
         String matHead = getToolHeadMaterial(c);
         String matBind = getToolBindingMaterial(c);
@@ -195,15 +229,49 @@ public final class ItemUtils {
             lore.add(ThemeUtils.getLine());
         }
 
+        // 将额外的lore保存至原装备
+        if (extraLore != null && !extraLore.isEmpty()) {
+        	lore.addAll(extraLore);
+        }
+        
         im.setLore(lore);
         itemStack.setItemMeta(im);
     }
 
+    @Async
     public static void rebuildArmourLore(@Nonnull ItemStack itemStack) {
         ItemMeta im = itemStack.getItemMeta();
         assert im != null;
         PersistentDataContainer c = im.getPersistentDataContainer();
         List<String> lore = new ArrayList<>();
+        List<String> oldLore = new ArrayList<>();
+        List<String> extraLore = new ArrayList<>();
+        
+        if (im.hasLore()) {
+        	oldLore = im.getLore();
+        }
+        
+        
+        int endTinkerLoreLine = 0;
+        if (oldLore != null && !oldLore.isEmpty()) {
+        	int currentLine = 0;
+        	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
+        		String oldLineLore = it.next();
+        		currentLine += 1;
+        		// 标记最后一行特征Lore 检查是否有其他lore
+        		if (oldLineLore == ThemeUtils.getLine()) {
+        			endTinkerLoreLine = currentLine;
+        		}
+            }
+        	// 从标记行开始存储额外lore
+        	currentLine = endTinkerLoreLine;
+        	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
+        		String extraLineLore = it.next();
+        		currentLine += 1;
+        		extraLore.add(extraLineLore);
+            }
+        	
+        }
 
         String matPlate = getArmourPlateMaterial(c);
         String matGambeson = getArmourGambesonMaterial(c);
@@ -245,6 +313,11 @@ public final class ItemUtils {
             lore.add(ThemeUtils.getLine());
         }
 
+        // 将额外的lore保存至原装备
+        if (extraLore != null && !extraLore.isEmpty()) {
+        	lore.addAll(extraLore);
+        }
+        
         im.setLore(lore);
         itemStack.setItemMeta(im);
     }
