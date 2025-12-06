@@ -160,13 +160,14 @@ public final class ItemUtils {
         PersistentDataContainer c = im.getPersistentDataContainer();
         List<String> lore = new ArrayList<>();
         List<String> oldLore = new ArrayList<>();
-        List<String> extraLore = new ArrayList<>();
+        List<String> extraStartLore = new ArrayList<>();
+        List<String> extraEndLore = new ArrayList<>();
         
         if (im.hasLore()) {
         	oldLore = im.getLore();
         }
         
-        
+        int startTinkerLoreLine = 0;
         int endTinkerLoreLine = 0;
         if (oldLore != null && !oldLore.isEmpty()) {
         	int currentLine = 0;
@@ -175,6 +176,9 @@ public final class ItemUtils {
         		currentLine += 1;
         		// 标记最后一行特征Lore 检查是否有其他lore
         		if (oldLineLore.endsWith(ThemeUtils.getLine())) {
+        			if (startTinkerLoreLine == 0) {
+        				startTinkerLoreLine = currentLine;
+        			}
         			endTinkerLoreLine = currentLine;
         		}
             }
@@ -183,14 +187,24 @@ public final class ItemUtils {
         	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
         		String oldLineLore = it.next();
         		currentLine += 1;
+        		if (currentLine < startTinkerLoreLine) {
+        			extraStartLore.add(oldLineLore);
+        		}
         		if (currentLine > endTinkerLoreLine) {
-        			extraLore.add(oldLineLore);
+        			extraEndLore.add(oldLineLore);
         		}
         		
             }
         	
         }
         
+        if (extraStartLore != null && !extraStartLore.isEmpty()) {
+        	for (Iterator<String> it =  extraStartLore.iterator(); it.hasNext();) {
+        		String lineLore = it.next();
+        		lore.add(lineLore);
+        		
+            }
+        }
 
         String matHead = getToolHeadMaterial(c);
         String matBind = getToolBindingMaterial(c);
@@ -233,8 +247,8 @@ public final class ItemUtils {
         }
 
         // 将额外的lore保存至原装备
-        if (extraLore != null && !extraLore.isEmpty()) {
-        	for (Iterator<String> it =  extraLore.iterator(); it.hasNext();) {
+        if (extraEndLore != null && !extraEndLore.isEmpty()) {
+        	for (Iterator<String> it =  extraEndLore.iterator(); it.hasNext();) {
         		String lineLore = it.next();
         		lore.add(lineLore);
         		
@@ -247,18 +261,19 @@ public final class ItemUtils {
 
     @Async
     public static void rebuildArmourLore(@Nonnull ItemStack itemStack) {
-        ItemMeta im = itemStack.getItemMeta();
+    	ItemMeta im = itemStack.getItemMeta();
         assert im != null;
         PersistentDataContainer c = im.getPersistentDataContainer();
         List<String> lore = new ArrayList<>();
         List<String> oldLore = new ArrayList<>();
-        List<String> extraLore = new ArrayList<>();
+        List<String> extraStartLore = new ArrayList<>();
+        List<String> extraEndLore = new ArrayList<>();
         
         if (im.hasLore()) {
         	oldLore = im.getLore();
         }
         
-        
+        int startTinkerLoreLine = 0;
         int endTinkerLoreLine = 0;
         if (oldLore != null && !oldLore.isEmpty()) {
         	int currentLine = 0;
@@ -267,6 +282,9 @@ public final class ItemUtils {
         		currentLine += 1;
         		// 标记最后一行特征Lore 检查是否有其他lore
         		if (oldLineLore.endsWith(ThemeUtils.getLine())) {
+        			if (startTinkerLoreLine == 0) {
+        				startTinkerLoreLine = currentLine;
+        			}
         			endTinkerLoreLine = currentLine;
         		}
             }
@@ -275,14 +293,26 @@ public final class ItemUtils {
         	for (Iterator<String> it =  oldLore.iterator(); it.hasNext();) {
         		String oldLineLore = it.next();
         		currentLine += 1;
+        		if (currentLine < startTinkerLoreLine) {
+        			extraStartLore.add(oldLineLore);
+        		}
         		if (currentLine > endTinkerLoreLine) {
-        			extraLore.add(oldLineLore);
+        			extraEndLore.add(oldLineLore);
         		}
         		
             }
         	
         }
+        
+        if (extraStartLore != null && !extraStartLore.isEmpty()) {
+        	for (Iterator<String> it =  extraStartLore.iterator(); it.hasNext();) {
+        		String lineLore = it.next();
+        		lore.add(lineLore);
+        		
+            }
+        }
 
+        
         String matPlate = getArmourPlateMaterial(c);
         String matGambeson = getArmourGambesonMaterial(c);
         String matLinks = getArmourLinksMaterial(c);
@@ -324,8 +354,8 @@ public final class ItemUtils {
         }
 
         // 将额外的lore保存至原装备
-        if (extraLore != null && !extraLore.isEmpty()) {
-        	for (Iterator<String> it =  extraLore.iterator(); it.hasNext();) {
+        if (extraEndLore != null && !extraEndLore.isEmpty()) {
+        	for (Iterator<String> it =  extraEndLore.iterator(); it.hasNext();) {
         		String lineLore = it.next();
         		lore.add(lineLore);
         		
