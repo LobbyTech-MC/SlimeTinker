@@ -251,7 +251,7 @@ public final class Materials {
         Material.PINK_DYE,
         ThemeItemType.CRAFTING,
         "深爱粒",
-        "带有深爱意义的梨"
+        "带有深爱意义的粒"
     );
     public static final SlimefunItemStack NUGGET_CAST_PASSION = ThemeUtils.themedItemStack(
         "NUGGET_CAST_PASSION",
